@@ -13,7 +13,7 @@ class OrderItem {
     @required this.amount,
     @required this.products,
     @required this.dateTime,
-  })
+  });
 }
 
 class Orders with ChangeNotifier {
@@ -24,11 +24,13 @@ class Orders with ChangeNotifier {
   }
 
   void addOrder(List<CartItem> cartProducts, double total) {
-    _orders.insert(0, OrderItem(
-      id: DateTime.now().toString(), 
-      amount: total, 
-      dateTime: DateTime.now(), 
-      products: cartProducts));
+    _orders.insert(
+        0,
+        OrderItem(
+            id: DateTime.now().toString(),
+            amount: total,
+            dateTime: DateTime.now(),
+            products: cartProducts));
     notifyListeners();
   }
 }
